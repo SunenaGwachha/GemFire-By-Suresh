@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 public class UserController {
 
-
     @Autowired
     RandomUserRepository randomUserRepository;
 
@@ -25,22 +24,14 @@ public class UserController {
 
     @GetMapping("/fetch")
     public ApiResponseDto fetchAll(@RequestParam Integer results) {
-
-
-
-
         List<RandomUser> result = randomUserRepository.findAll();
         if (!result.isEmpty()) {
-
             return new ApiResponseDto(result);
         }
-
 
         ApiResponseDto apiResponseDto = myFeignClient.getRandomUsers(results);
 
         randomUserRepository.saveAll(apiResponseDto.getResults());
         return apiResponseDto;
-
-
     }
 }

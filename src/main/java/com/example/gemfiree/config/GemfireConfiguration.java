@@ -18,8 +18,6 @@ import java.util.Properties;
 @ComponentScan
 @EnableGemfireRepositories(basePackages = "com.example.gemfiree.repository")
 public class GemfireConfiguration {
-
-
     @Bean
     Properties gemfireProperties() {
         Properties gemfireProperties = new Properties();
@@ -37,7 +35,6 @@ public class GemfireConfiguration {
         return gemfireCache;
     }
 
-
     @Bean(name = "users")
     @Autowired
     LocalRegionFactoryBean<String, RandomUser> getUsers(final GemFireCache cache) {
@@ -49,8 +46,6 @@ public class GemfireConfiguration {
         addressRegion.setDataPolicy(DataPolicy.PRELOADED);
         return addressRegion;
     }
-
-
 }
 
 

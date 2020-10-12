@@ -5,18 +5,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.gemfire.mapping.annotation.Region;
 
 
-
 @Region("users")
 public class RandomUser {
     @Id
     private String email;
     private String gender;
 
-
-
     private String phone;
     private Name name;
-
+    
     private Location location;
 
     public Location getLocation() {
